@@ -6,8 +6,24 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = () => {
-  document.querySelector(".card").classList.add(generateRandomSuit());
+  console.log(generateRandomSuit());
+  document.querySelector(".card").className = generateRandomSuit();
   document.querySelector(".card").innerHTML = generateRandomNumber();
+};
+
+window.change = () => {
+  console.log(generateRandomSuit());
+  document.querySelector(".card").className = generateRandomSuit();
+  document.querySelector(".card").innerHTML = generateRandomNumber();
+  let cardWidthInput = document.querySelector("#cardWidth");
+  let cardHeightInput = document.querySelector("#cardHeight");
+
+  const width = parseInt(cardWidthInput.value) / 250;
+  const height = parseInt(cardHeightInput.value) / 200;
+
+  document.querySelector(
+    ".card"
+  ).style.transform = `scale(${width}, ${height})`;
 };
 
 let generateRandomNumber = () => {
@@ -35,5 +51,7 @@ let generateRandomNumber = () => {
 let generateRandomSuit = () => {
   let suit = ["diamond", "spade", "heart", "club"];
   let indexSuit = Math.floor(Math.random() * suit.length);
-  return suit[indexSuit];
+  return "card " + suit[indexSuit];
 };
+
+setInterval(change, 5000); // Timer

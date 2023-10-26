@@ -28,6 +28,7 @@ body {
     bottom: 20px;
     right: 20px;
     font-size: 120px;
+    transform: rotate(-180deg);
   }
   &.spade:before,
   &.spade:after {
